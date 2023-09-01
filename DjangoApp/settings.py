@@ -9,11 +9,18 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+# this going somewhere on the top of the file.
+import environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False))
+# reading .env file
+environ.Env.read_env()
 
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+#Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -21,12 +28,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = os.environ.get('DJANGO_SEC')
+=======
+# SECRET_KEY = 
+# SECRET_KEY = os.environ('DJANGO_SEC')
+SECRET_KEY = env('SECRET_KEY')
+
+>>>>>>> b7a28cfe0c40f133e11ebd091310d6f581e3c383
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.105.74.172']
+ALLOWED_HOSTS = ['172.105.74.172', '127.0.0.1']
 
 
 # Application definition
