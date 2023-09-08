@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    
+<div class="container ">
+  <h1 class="text-center">Your Profile</h1>
+
+  <div class="card bg-light text-dark">
+        <h2 class="account-heading text-center mt-2">User Name: {{ user }}</h2>
+    <div class="content-section ">
+      <img class="rounded-circle account-img ml-4 mx-auto d-block" style="width:200px;height:200px;" src="{{ user.profile.image.url }}">
+      <div class="card-body">
+        <h6 class="text-center">Email: {{ user.email }} </h6>
+        <p class="card-text text-center"></p>
+      </div>
+        <div class="text-center">
+          <a href="{% url 'update' %}" class="btn btn-outline-info mb-3">Update Profile</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

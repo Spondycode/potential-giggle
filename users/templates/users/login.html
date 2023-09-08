@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4"> Log Yourself In...</legend>
+          {{ form.as_p}}
+        </fieldset>
+        <div>
+          <button class="btn btn-outline-info mb-4" type="submit">Sign In </button>
+        </div>  
+      </form>  
+      <div class="border-top pt-3">
+        <small class="text-muted">
+          Need an account Dude? <a class="ml-2 mb-4" href="{% url 'register'  %}">Register</a>
+        </small>
+      </div>
+    </div>
+
+{% endblock %}
